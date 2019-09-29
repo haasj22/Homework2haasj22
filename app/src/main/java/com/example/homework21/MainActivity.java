@@ -2,7 +2,11 @@
  * class that runs the faceCustomizationApp.
  * It sets appropriate listeners to classes
  *
+ * @knownDeficiencies RandomizeButton does not update spinner
+ *                    which is not required in the rubric
+ *
  * @author John Haas
+ * @programVersion September 2019
  */
 
 package com.example.homework21;
