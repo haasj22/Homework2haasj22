@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Homework2</string>
+
+    <string-array name="hair_type_array">
+        <item>Mohawk Style</item>
+        <item>Afro Style</item>
+        <item>Jesus Style</item>
+    </string-array>
+
+</resources>
