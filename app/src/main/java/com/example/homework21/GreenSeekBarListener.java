@@ -36,6 +36,7 @@ public class GreenSeekBarListener implements SeekBar.OnSeekBarChangeListener {
         //sets the faceModel's green color variables appropriately
         if(affectedFaceModel.radioChoice == 0) { //hair
             affectedFaceModel.hairGreen=i;
+            affectedFaceModel.reevaluateHairColor();
         } else if (affectedFaceModel.radioChoice == 1) { //eyes
             affectedFaceModel.eyeGreen=i;
             affectedFaceModel.reevaluateEyeColor();

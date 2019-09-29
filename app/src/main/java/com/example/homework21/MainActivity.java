@@ -22,6 +22,12 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
+    Face affectedImage;
+    FaceModel programFaceModel;
+
+    SeekBar redSeekBar;
+    SeekBar greenSeekBar;
+    SeekBar blueSeekBar;
 
     /**
      * method that starts the app and sets appropriate listeners to classes
@@ -33,6 +39,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //the common surface view
+        affectedImage = (Face)findViewById(R.id.myFaceSurfaceView);
+
+        //the common faceModel
+        programFaceModel=affectedImage.getFaceModel();
+
+        //sets the proper listeners to their views
+        createSpinner();
+        initializeSeekBars();
+        createRadioButtons();
+        createRandomizeButtonListener();
+    }
+
+    /**
+     * method that creates a spinner with the appropriate text
+     */
+    public void createSpinner() {
         /**
          * External Citation
          * Problem: I did not know how to implement spinners
@@ -40,12 +63,6 @@ public class MainActivity extends AppCompatActivity {
          * Resource: https://developer.android.com/guide/topics/ui/controls/spinner#java
          * Solution: I used a lot of the sample code in this resource
          */
-        //the common surface view
-        Face affectedImage = (Face)findViewById(R.id.myFaceSurfaceView);
-
-        //the common faceModel
-        FaceModel programFaceModel=affectedImage.getFaceModel();
-
         //spinner that controls the different hairstyles
         Spinner hairSpinner = findViewById(R.id.hairTypeSpinner);
 
@@ -60,24 +77,32 @@ public class MainActivity extends AppCompatActivity {
 
         //sets the face style controller to the appropriate spinner
         hairSpinner.setOnItemSelectedListener(hairStyleController);
+    }
 
-
-
-        //creates a redSeekBarListener and assigns it to the appropriate seekbar
+    /**
+     * method that initializes the instance SeekBars and sets the proper listeners
+     */
+    public void initializeSeekBars() {
+        //creates a redSeekBarListener and assigns it to the appropriate SeekBar
         RedSeekBarListener redController = new RedSeekBarListener(affectedImage);
-        SeekBar redSeekBar = findViewById(R.id.redSeekBar);
+        redSeekBar = findViewById(R.id.redSeekBar);
         redSeekBar.setOnSeekBarChangeListener(redController);
 
-        //creates a greenSeekBarListener and assigns it to the appropriate seekbar
+        //creates a greenSeekBarListener and assigns it to the appropriate SeekBar
         GreenSeekBarListener greenController= new GreenSeekBarListener(affectedImage);
-        SeekBar greenSeekBar = findViewById(R.id.greenSeekBar);
+        greenSeekBar = findViewById(R.id.greenSeekBar);
         greenSeekBar.setOnSeekBarChangeListener(greenController);
 
-        //creates a blueSeekBarListener and assigns it to the appropriate seekbar
+        //creates a blueSeekBarListener and assigns it to the appropriate SeekBar
         BlueSeekBarListener blueController = new BlueSeekBarListener(affectedImage);
-        SeekBar blueSeekBar = findViewById(R.id.blueSeekBar);
+        blueSeekBar = findViewById(R.id.blueSeekBar);
         blueSeekBar.setOnSeekBarChangeListener(blueController);
+    }
 
+    /**
+     * method that sets listeners for all of the radio buttons
+     */
+    public void createRadioButtons() {
         //creates controller for the radioButtons
         FeatureRadioButtonListener FeatureController =
                 new FeatureRadioButtonListener(affectedImage, redSeekBar, greenSeekBar, blueSeekBar);
@@ -99,12 +124,17 @@ public class MainActivity extends AppCompatActivity {
         redSeekBar.setProgress(programFaceModel.hairRed);
         greenSeekBar.setProgress(programFaceModel.hairGreen);
         blueSeekBar.setProgress(programFaceModel.hairBlue);
+    }
 
+    /**
+     * method that creates a listener for the randomizeButton
+     */
+    public void createRandomizeButtonListener() {
         //attaches the randomizeButton controller to the appropriate button
-        RandomizeButtonListener rbl =
+        RandomizeButtonListener faceRandomizer =
                 new RandomizeButtonListener(affectedImage, redSeekBar, greenSeekBar, blueSeekBar);
         Button randomizeButton = (Button)findViewById(R.id.randomizeButton);
-        randomizeButton.setOnClickListener(rbl);
-
+        randomizeButton.setOnClickListener(faceRandomizer);
     }
+
 }
