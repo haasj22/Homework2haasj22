@@ -24,6 +24,7 @@ public class RandomizeButtonListener implements View.OnClickListener {
      * @param fsv surface view that the randomizeButton affects
      */
     public RandomizeButtonListener(Face fsv, SeekBar r, SeekBar g, SeekBar b) {
+        //instance variables
         FaceSurfaceView = fsv;
         programFaceModel=fsv.getFaceModel();
         red=r;

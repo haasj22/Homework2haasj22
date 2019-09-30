@@ -25,8 +25,6 @@ public class Face extends SurfaceView {
     SeekBar blue;
     SeekBar green;
 
-    RadioButton defaultCheckedButton;
-
     //paints
     private Paint facePaint = new Paint();
     private Paint hairPaint = new Paint();
