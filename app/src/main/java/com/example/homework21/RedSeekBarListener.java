@@ -36,6 +36,7 @@ public class RedSeekBarListener implements SeekBar.OnSeekBarChangeListener {
         //sets the faceModel's green color variables appropriately
         if(affectedFaceModel.radioChoice == 0) { //hair
             affectedFaceModel.hairRed=i;
+            affectedFaceModel.reevaluateHairColor();
         } else if (affectedFaceModel.radioChoice == 1) { //eyes
             affectedFaceModel.eyeRed=i;
             affectedFaceModel.reevaluateEyeColor();
@@ -47,11 +48,21 @@ public class RedSeekBarListener implements SeekBar.OnSeekBarChangeListener {
         myFaceSurfaceView.invalidate();
     }
 
+    /**
+     * method that needs to be implemented but is not used
+     *
+     * @param seekBar not really applicable
+     */
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
 
     }
 
+    /**
+     * method that needs to be implemented but is not used
+     *
+     * @param seekBar not really applicable
+     */
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 

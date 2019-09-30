@@ -12,7 +12,7 @@ import android.widget.SeekBar;
 public class RandomizeButtonListener implements View.OnClickListener {
     //instance variable
     private Face FaceSurfaceView;
-    private FaceModel ourFaceModel;
+    private FaceModel programFaceModel;
 
     SeekBar red;
     SeekBar green;
@@ -25,7 +25,7 @@ public class RandomizeButtonListener implements View.OnClickListener {
      */
     public RandomizeButtonListener(Face fsv, SeekBar r, SeekBar g, SeekBar b) {
         FaceSurfaceView = fsv;
-        ourFaceModel=fsv.getFaceModel();
+        programFaceModel=fsv.getFaceModel();
         red=r;
         green=g;
         blue=b;
@@ -39,21 +39,21 @@ public class RandomizeButtonListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         FaceSurfaceView.randomize();
-        switch(ourFaceModel.radioChoice) {
+        switch(programFaceModel.radioChoice) {
             case 0: //face
-                red.setProgress(ourFaceModel.hairRed);
-                green.setProgress(ourFaceModel.hairGreen);
-                blue.setProgress(ourFaceModel.hairBlue);
+                red.setProgress(programFaceModel.hairRed);
+                green.setProgress(programFaceModel.hairGreen);
+                blue.setProgress(programFaceModel.hairBlue);
                 break;
             case 1: //eyes
-                red.setProgress(ourFaceModel.eyeRed);
-                green.setProgress(ourFaceModel.eyeGreen);
-                blue.setProgress(ourFaceModel.eyeBlue);
+                red.setProgress(programFaceModel.eyeRed);
+                green.setProgress(programFaceModel.eyeGreen);
+                blue.setProgress(programFaceModel.eyeBlue);
                 break;
             case 2: //skin
-                red.setProgress(ourFaceModel.skinRed);
-                green.setProgress(ourFaceModel.skinGreen);
-                blue.setProgress(ourFaceModel.skinBlue);
+                red.setProgress(programFaceModel.skinRed);
+                green.setProgress(programFaceModel.skinGreen);
+                blue.setProgress(programFaceModel.skinBlue);
                 break;
         }
     }

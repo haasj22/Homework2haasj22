@@ -2,8 +2,10 @@
  * class that runs the faceCustomizationApp.
  * It sets appropriate listeners to classes
  *
- * @knownDeficiencies RandomizeButton does not update spinner
+ * @knownDeficiencies -RandomizeButton does not update spinner
  *                    which is not required in the rubric
+ *                    -Upon flipping the screen seekbars start
+ *                    to control hair even that may not be right
  *
  * @author John Haas
  * @programVersion September 2019
@@ -22,6 +24,7 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
+    //instance variables
     Face affectedImage;
     FaceModel programFaceModel;
 

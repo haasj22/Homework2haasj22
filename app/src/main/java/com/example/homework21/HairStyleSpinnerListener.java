@@ -37,6 +37,7 @@ public class HairStyleSpinnerListener extends Activity implements AdapterView.On
      */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        //changes the hairstyle to the one selected
         affectedFaceModel.hairStyle=i;
         programFaceView.invalidate();
     }

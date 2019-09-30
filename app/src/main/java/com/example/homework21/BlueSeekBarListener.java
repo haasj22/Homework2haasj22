@@ -48,11 +48,21 @@ public class BlueSeekBarListener implements SeekBar.OnSeekBarChangeListener {
         myFaceSurfaceView.invalidate();
     }
 
+    /**
+     * method that needs to be implemented but is not used
+     *
+     * @param seekBar not really applicable
+     */
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
 
     }
 
+    /**
+     * method that needs to be implemented but is not used
+     *
+     * @param seekBar not really applicable
+     */
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 

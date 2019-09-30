@@ -254,7 +254,6 @@ public class Face extends SurfaceView {
     public void randomize() {
         //sets random hairstyle
         programFaceModel.hairStyle=(int)(Math.random() * 3);
-        //update adapter
 
         //sets random hair color
         programFaceModel.hairRed=(int)(Math.random() * 256);
@@ -295,7 +294,7 @@ public class Face extends SurfaceView {
      * @param b the blueSeekBar being passed in
      */
     public void setSeekBars(SeekBar r, SeekBar g, SeekBar b) {
-        //initializes the seekbars
+        //initializes the seekBars
         red=r;
         green=g;
         blue=b;
